@@ -1,0 +1,28 @@
+{
+  "c07d71146a0d6b84cab630f628b9a283": {
+    "sceneGuid": "f5961aed1ce901c4a822a69fa587bfdc",
+    "uniqueCameraId": "c07d71146a0d6b84cab630f628b9a283",
+    "name": "Field",
+    "pointX": -6.059941,
+    "pointY": -12.4335728,
+    "pointZ": 4.92503357,
+    "directionX": 0.357269824,
+    "directionY": -0.007171081,
+    "directionZ": 0.00276796846,
+    "directionW": 0.9340932,
+    "zoom": 21.5855579
+  },
+  "8f1c58493c39d9a4ead3e9ba8fd677cf": {
+    "sceneGuid": "f5961aed1ce901c4a822a69fa587bfdc",
+    "uniqueCameraId": "8f1c58493c39d9a4ead3e9ba8fd677cf",
+    "name": "Canvas",
+    "pointX": 465.754059,
+    "pointY": 166.62059,
+    "pointZ": 369.159149,
+    "directionX": 0.07872945,
+    "directionY": 0.014771645,
+    "directionZ": -0.00113407755,
+    "directionW": 0.9968991,
+    "zoom": 531.543
+  }
+}

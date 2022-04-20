@@ -1,29 +1,33 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    private Rigidbody _rigidbody;
     private Animator _animator;
     
     private readonly int _hashRForwardAnimation = Animator.StringToHash("RollingForward");
     private readonly int _hashRBackwardsAnimation = Animator.StringToHash("RollingBackwards");
-    private bool _isRolling = false;
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    public void StartRolling()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _isRolling = !_isRolling;
-            _animator.SetBool(_hashRForwardAnimation, _isRolling);
-        }
+        _animator.SetBool(_hashRForwardAnimation, true);
+    }
+
+    public void StopRolling()
+    {
+        _animator.SetBool(_hashRForwardAnimation, false);
+    }
+
+    public void StartRollingBackwards()
+    {
+        _animator.SetBool(_hashRBackwardsAnimation, true);
+    }
+    public void StopRollingBackwards()
+    {
+        _animator.SetBool(_hashRBackwardsAnimation, false);
     }
 }
