@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!_canCollide) return;
         GameStats.Lives -= 1;
-        Debug.Log(GameStats.Lives);
+        SoundManager.Instance.PlayHurtEffect();
         _canCollide = false;
         StartCoroutine(WaitSecondsAndActivateCollision(0.5f));
     }

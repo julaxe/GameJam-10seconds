@@ -59,6 +59,7 @@ public class Orb : MonoBehaviour
         {
             Vanish();
             GameStats.OrbsCollected += 1;
+            SoundManager.Instance.PlayCoinEffect();
         }
     }
 

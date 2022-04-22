@@ -12,5 +12,6 @@ public class GameOver : MonoBehaviour
           _playerLivesUI.RestartLives();
           GameStats.ResetStats();
           _gameLogicManager.RestartGame();
+          gameObject.SetActive(false);
      }
 }

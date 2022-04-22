@@ -110,6 +110,7 @@ public class GameLogicManager : MonoBehaviour
 
     private void RewindEnemies()
     {
+        SoundManager.Instance.PlayRewindEffect();
         foreach (var enemy in _enemies)
         {
             enemy.StartRewinding(rewindTime-1f);
