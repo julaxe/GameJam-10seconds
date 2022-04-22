@@ -127,5 +127,12 @@ public class Enemy : MonoBehaviour
     {
         return !_isPlaying && !_isRewinding;
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!_isPlaying) return;
+        if (!other.CompareTag("Player")) return;
+        
+        other.GetComponent<PlayerMovement>().CollideWithEnemy();
+    }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -9,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 _direction;
     private bool _canMove = false;
+    private bool _canCollide = true;
 
     private void Awake()
     {
@@ -52,4 +54,18 @@ public class PlayerMovement : MonoBehaviour
         _playerAnimation.StopRolling();
     }
 
+    public void CollideWithEnemy()
+    {
+        if (!_canCollide) return;
+        GameStats.Lives -= 1;
+        Debug.Log(GameStats.Lives);
+        _canCollide = false;
+        StartCoroutine(WaitSecondsAndActivateCollision(0.5f));
+    }
+
+    IEnumerator WaitSecondsAndActivateCollision(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        _canCollide = true;
+    }
 }

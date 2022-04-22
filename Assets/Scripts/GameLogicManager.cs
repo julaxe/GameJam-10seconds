@@ -8,6 +8,7 @@ public class GameLogicManager : MonoBehaviour
     [Header("references")]
     public GameObject playerRef;
     public GameObject startScreen;
+    public GameObject gameOverScreen;
     public OrbManager orbManager;
     public Enemy enemyPrefab;
 
@@ -55,11 +56,29 @@ public class GameLogicManager : MonoBehaviour
     {
         if (!_enemySpawned)
         {
-            GameTimer.PauseTimer();
-            StopMovement();
-            StopPlayingEnemies();
+            StopGame();
             StartCoroutine(WaitAndSpawnEnemy(1.0f));
         }
+    }
+
+    private void StopGame()
+    {
+        GameTimer.PauseTimer();
+        StopMovement();
+        StopPlayingEnemies();
+    }
+
+    public void GameOver()
+    {
+        StopGame();
+        gameOverScreen.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        _enemies.ForEach(x => Destroy(x.gameObject));
+        _enemies.Clear();
+        StartGame();
     }
 
     IEnumerator WaitAndStartTheGame(float seconds)

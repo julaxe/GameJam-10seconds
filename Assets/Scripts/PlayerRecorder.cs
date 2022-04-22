@@ -29,6 +29,7 @@ public class PlayerRecorder : MonoBehaviour
                 if (_currentPosition >= _positionPerSecond * 10)
                 {
                     Debug.Log("Error: array is full, is trying to access an invalid position in the array");
+                    return;
                 }
 
                 _positionsArray[_currentPosition] = transform.position;
