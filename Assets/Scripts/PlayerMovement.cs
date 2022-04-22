@@ -33,8 +33,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (!_canMove) return;
-        var force = _direction * _speed * Time.fixedDeltaTime;
-        _rigidbody.AddForce(force);
+        if (_direction != Vector3.zero)
+        {
+            var force = _direction * _speed * Time.fixedDeltaTime;
+            _rigidbody.AddForce(force);
+        }
     }
 
     public void ActivateMoving()
