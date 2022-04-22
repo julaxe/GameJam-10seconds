@@ -11,14 +11,14 @@ public class Orb : MonoBehaviour
     [SerializeField] private float _secondsToVanish = 3f;
     private OrbManager _orbManagerRef;
 
-private bool _isVanishing = false;
+    private bool _isVanishing = false;
+    private bool _isActive = false;
     private void Vanish()
     {
         if (_isVanishing) return;
+        _isActive = false;
         _isVanishing = true;
-        _beamPS.Stop();
-        _particlesPS.Stop();
-        _smokePS.Stop();
+        StopParticles();
         StartCoroutine(WaitForVanishAndDisableAfterSeconds(_secondsToVanish));
     }
 
@@ -29,7 +29,28 @@ private bool _isVanishing = false;
     }
     public void Summon()
     {
+        _isActive = true;
         _isVanishing = false;
+        gameObject.SetActive(true);
+        PlayParticles();
+    }
+
+    private void PlayParticles()
+    {
+        _beamPS.Play();
+        _particlesPS.Play();
+        _smokePS.Play();
+    }
+
+    public bool ParticleActive()
+    {
+        return _isActive;
+    }
+    private void StopParticles()
+    {
+        _beamPS.Stop();
+        _particlesPS.Stop();
+        _smokePS.Stop();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,6 +58,7 @@ private bool _isVanishing = false;
         if (other.CompareTag("Player"))
         {
             Vanish();
+            GameStats.OrbsCollected += 1;
         }
     }
 

@@ -8,6 +8,7 @@ public class GameLogicManager : MonoBehaviour
     [Header("references")]
     public GameObject playerRef;
     public GameObject startScreen;
+    public OrbManager orbManager;
     public Enemy enemyPrefab;
 
     public float rewindTime = 3f;
@@ -30,7 +31,7 @@ public class GameLogicManager : MonoBehaviour
     {
         if (GameTimer.TimerFinished())
         {
-            StopGame();
+            StopGameAndSpawnEnemy();
 
             if (_timer >= rewindTime+1)
             {
@@ -47,9 +48,10 @@ public class GameLogicManager : MonoBehaviour
         GameTimer.StartTimer();
         startScreen.SetActive(false);
         StartMovement();
+        orbManager.StartOrbManager();
     }
 
-    private void StopGame()
+    private void StopGameAndSpawnEnemy()
     {
         if (!_enemySpawned)
         {
@@ -84,6 +86,7 @@ public class GameLogicManager : MonoBehaviour
         Enemy newEnemy = Instantiate(enemyPrefab);
         newEnemy.StartEnemy( _playerRecorder.GetPositionRecorded(),_playerRecorder.GetLastPosition());
         _enemies.Add(newEnemy);
+        GameStats.EnemiesSpawned += 1;
     }
 
     private void RewindEnemies()
