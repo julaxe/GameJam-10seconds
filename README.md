@@ -12,3 +12,5 @@ your clones.
 <img width="640" alt="10seconds2" src="https://user-images.githubusercontent.com/59695404/170834770-d08f974a-b2a2-4906-b9ce-fd5e538e4411.png">
 <img width="642" alt="10seconds3" src="https://user-images.githubusercontent.com/59695404/170834771-b2b261dc-279f-40f0-bffa-6e0a5b5dd077.png">
 <img width="639" alt="10seconds4" src="https://user-images.githubusercontent.com/59695404/170834772-2dfb60f8-f21c-49c8-9858-dfea7fb655fe.png">
+
+Try it! https://julaxe.github.io/10SecondsGame/
